@@ -4,22 +4,26 @@ class Dog:
     def __init__(self, name):
         self.name = name
         self.sleepiness = 0
-        self.happiness = 50
-        self.hunger = 0
+        self.happiness = 100
+        self.hunger = 100
         self.alive = True
 
     def to_sleep(self):
+        print("You choice is sleeping")
         print("Eyes are getting heavier and heavier")
-        self.sleepiness = 0
+        self.sleepiness -= 25
 
     def to_eat(self):
+        print("You choice is eating")
         print("Sweets are waiting!")
         self.hunger += 25
+        self.sleepiness += 25
 
     def to_play(self):
+        print("You choice is playing")
         print("The owner is already waiting")
         self.happiness += 50
-        self.hunger -= 10
+        self.hunger -= 25
 
     def is_alive(self):
         if self.sleepiness >= 100:
@@ -28,7 +32,7 @@ class Dog:
         elif self.hunger <= 0:
             print("Is the sweets really over?")
             self.alive = False
-        elif self.happiness >= 250:
+        elif self.happiness >= 500:
             print("You are the happiest dog ever!")
             self.alive = False
         elif self.happiness <= 0:
@@ -59,3 +63,4 @@ for day in range(365):
     if not bob.alive:
         break
     bob.live(day)
+
